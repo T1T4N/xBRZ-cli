@@ -8,6 +8,10 @@ This application uses the awesome library [CImg](http://cimg.eu/) to read and wr
 
 The application was developed after stumbling across [node-xbrz](https://github.com/kentaromiura/node-xbrz), and realizing that Zenju, the original author, forgot to upload the source for the ScalerTest.
 
+![Original image](http://i.imgur.com/dhgI53H.png "Original image")
+![sxBRZ x2](http://i.imgur.com/TZLKAmm.png "sxBRZ x2")
+![sxBRZ x3](http://i.imgur.com/wYJKREk.png "sxBRZ x3")
+
 #### Usage
 The command accepts three arguments: ```xbrz-cli inputFile scaleFactor outputFile```
 
