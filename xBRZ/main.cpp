@@ -6,8 +6,8 @@
 //
 
 #include <iostream>
-#include "xbrz.h"
 #include <sstream>
+#include "xbrz.h"
 
 #define cimg_use_png
 #define cimg_display 0
@@ -49,14 +49,16 @@ int main(int argc, const char * argv[]) {
         std::cerr << "Scale factor " << err << " could not be parsed" << std::endl;
         return EXIT_FAILURE;
     }
-    
+
+    std::cout << "Loading image from path: " << filename << std::endl;
     CImg<uint32_t> image(filename);
     int width = image.width();
     int height = image.height();
     int depth = image.depth();
     int spectrum = image.spectrum();
     bool isRGBA = spectrum == 4;
-    
+
+    std::cout << "Getting raw pixel data" << std::endl;
     uint32_t* p_raw = new uint32_t[width * height];
     // RGBA to ARGB
     for(uint32_t y = 0; y < (uint32_t)width; y++) {
@@ -71,7 +73,8 @@ int main(int argc, const char * argv[]) {
     }
     
     uint32_t* p_output = new uint32_t[scale * scale * height * width];
-    
+
+    std::cout << "Perform scaling" << std::endl;
     xbrz::scale(
                 scale,
                 p_raw,
@@ -84,6 +87,7 @@ int main(int argc, const char * argv[]) {
     delete[] p_raw;
     
     CImg<uint32_t> output(width * scale, height * scale, depth, spectrum);
+    std::cout << "Converting output data to RGBA" << std::endl;
     // ARGB to RGBA
     for(uint32_t y = 0; y < (uint32_t)output.width(); y++) {
         for(uint32_t x = 0; x < (uint32_t)output.height(); x++) {
@@ -114,6 +118,7 @@ int main(int argc, const char * argv[]) {
         }
     }
     delete[] p_output;
+    std::cout << "Saving output data" << std::endl;
     output.save(outname);
     
     return EXIT_SUCCESS;
