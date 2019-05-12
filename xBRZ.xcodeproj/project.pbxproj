@@ -44,10 +44,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E12C98C82288385E0019A5E3 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				E12C98C9228838660019A5E3 /* CImg */,
+				E1C1E2DE1CCD70830051F962 /* xBRZ */,
+				E12C98CA2288386E0019A5E3 /* xBRZ-cli */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		E12C98C9228838660019A5E3 /* CImg */ = {
+			isa = PBXGroup;
+			children = (
+				E12C98C7228833CB0019A5E3 /* CImg.h */,
+			);
+			path = CImg;
+			sourceTree = "<group>";
+		};
+		E12C98CA2288386E0019A5E3 /* xBRZ-cli */ = {
+			isa = PBXGroup;
+			children = (
+				E1C1E2DF1CCD70830051F962 /* main.cpp */,
+			);
+			path = "xBRZ-cli";
+			sourceTree = "<group>";
+		};
 		E1C1E2D31CCD70830051F962 = {
 			isa = PBXGroup;
 			children = (
-				E1C1E2DE1CCD70830051F962 /* xBRZ */,
+				E12C98C82288385E0019A5E3 /* Sources */,
 				E1C1E2DD1CCD70830051F962 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,8 +89,6 @@
 		E1C1E2DE1CCD70830051F962 /* xBRZ */ = {
 			isa = PBXGroup;
 			children = (
-				E12C98C7228833CB0019A5E3 /* CImg.h */,
-				E1C1E2DF1CCD70830051F962 /* main.cpp */,
 				E12C98C322882FDB0019A5E3 /* xbrz_config.h */,
 				E12C98C222882FDB0019A5E3 /* xbrz_tools.h */,
 				E12C98C422882FDB0019A5E3 /* xbrz.cpp */,
