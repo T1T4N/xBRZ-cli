@@ -7,12 +7,14 @@
 
 #include <iostream>
 #include <sstream>
+#include <chrono>
 #include "xbrz.h"
 
 #define cimg_use_png
 #define cimg_display 0
 #include "CImg.h"
 
+using namespace std::chrono;
 using namespace cimg_library;
 
 template <uint32_t N> inline
@@ -75,6 +77,8 @@ int main(int argc, const char * argv[]) {
     uint32_t* p_output = new uint32_t[scale * scale * height * width];
 
     std::cout << "Perform scaling" << std::endl;
+    auto start = high_resolution_clock::now();
+
     xbrz::scale(
                 scale,
                 p_raw,
@@ -83,6 +87,10 @@ int main(int argc, const char * argv[]) {
                 height,
                 isRGBA? xbrz::ColorFormat::ARGB : xbrz::ColorFormat::RGB
                 );
+
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(stop - start);
+    std::cout << "Scaling done in: " << duration.count() << " milliseconds" << std::endl;
     
     delete[] p_raw;
     
